@@ -181,6 +181,9 @@ Route::group(
     Route::get('contact/{id}', 'ContactController@show')->name('contact.show');
     Route::get('contact/delete/{id}', 'ContactController@destroy')->name('contact.delete');
 
+    Route::get('subscriber', 'ContactController@subscriber')->name('subscriber');
+    Route::get('subscriber/delete/{id}', 'ContactController@subscriberDestroy')->name('subscriber.delete');
+
 
 
 

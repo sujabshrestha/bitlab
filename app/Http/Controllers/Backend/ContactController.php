@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Model\Contact;
+use App\Model\Subscriber;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -17,6 +18,12 @@ class ContactController extends Controller
     {
         $contacts = Contact::all();
         return view('admin.contact.index', compact('contacts'));
+    }
+
+    public function subscriber()
+    {
+        $contacts = Subscriber::all();
+        return view('admin.contact.subscribe', compact('contacts'));
     }
 
     /**
@@ -94,6 +101,17 @@ class ContactController extends Controller
             return redirect()->back()->with('success', 'Contact Successfully Deleted.');
         }else{
             return redirect()->back()->with('errors', 'Contact Not Found!!! Refresh your page.');
+        }
+    }
+
+    public function subscriberDestroy($id)
+    {
+        $contact = Subscriber::where('id', $id)->first();
+        if($contact){
+            $contact->delete();
+            return redirect()->back()->with('success', 'Subscriber Successfully Deleted.');
+        }else{
+            return redirect()->back()->with('errors', 'Subscriber Not Found!!! Refresh your page.');
         }
     }
 }

@@ -70,6 +70,15 @@
                 </a>
             </li>
 
+            <li class="menu">
+                <a href="{{ route('admin.subscriber') }}" class="dropdown-toggle">
+                    <div class="">
+                        <i class="fas fa-closed-captioning"></i>
+                        <span>Subscriber</span>
+                    </div>
+                </a>
+            </li>
+
 
 
 
