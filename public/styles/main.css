@@ -62,7 +62,6 @@ a {
 }
 
 .main-banner .banner-item {
-  background-image: url("../images/medical-checkups.png");
   height: 552px;
   background-position: center;
   background-repeat: no-repeat;
@@ -1213,7 +1212,6 @@ a {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/blogimg.png");
 }
 
 .blog-section .blogs-conteiner .blog-firstitem .content-box {

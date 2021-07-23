@@ -22,51 +22,45 @@ class IndexController extends Controller
     }
 
     public function home(){
-        $sliders = $this->cms->getGlobalPostByID(12);
-        foreach ($sliders as $slider){
-            $slider->sub_tile = $this->cms->getGlobalPostMetaByKey($slider,'sub-title');
-        }
-        $productCategories = $this->cms->getGlobalPostByID(8);
-        $products = $this->cms->getGlobalPostByID(1, 6);
-        foreach ($products as $product){
-            $category_meta = $this->cms->getGlobalPostMetaByKey($product,'select-product-category');
-            if ($category_meta){
-                $product->parent_category =  implode(" ", unserialize($category_meta));
-            }
-        }
 
-        $offers = $this->cms->getGlobalPostByID(9, 3);
-        foreach ($offers as $offer){
-            $offer->icon = $this->cms->getGlobalPostMetaByKey($offer,'icon');
+        $allblogs = $this->cms->getGlobalPostByID(7, 5);
+
+        $alltestomonials = $this->cms->getGlobalPostByID(6);
+        $allwhatwedo =  $this->cms->getGlobalPostByID(4);
+        $allsliders = $this->cms->getGLobalPostById(1,3);
+
+        foreach($allsliders as $slider){
+            $slider->links = $this->cms->getGlobalPostMetaByKey($slider,'links');
         }
-        $blogs = $this->cms->getGlobalPostByID(6, 5);
-        $testimonials = $this->cms->getGlobalPostByID(10, 9);
-        $teams = $this->cms->getGlobalPostByID(11, 10);
-        foreach ($teams as $team){
-            $team->degination = $this->cms->getGlobalPostMetaByKey($team,'degination');
-        }
-        return view('frontEnd.pages.home', compact('sliders', 'productCategories', 'products', 'offers', 'blogs', 'testimonials', 'teams'));
+        $allequipments = $this->cms->getGlobalPostByID(5,4);
+
+
+        return view('frontEnd.pages.home',compact('alltestomonials','allblogs','allsliders','allwhatwedo','allequipments'));
     }
 
     public function about(){
-        $posttypeteam = PostType::where('slug','our-team')->first();
-        $allteams = GobalPost::where('post_type',$posttypeteam->id)->get();
-        $abouts = $this->cms->getGlobalPostByID(7);
+        $allteams = $this->cms->getGlobalPostByID(9, 5);
+        $alltestomonials = $this->cms->getGlobalPostByID(6);
 
-            
-        return view('frontEnd.pages.about', compact('abouts','allteams'));
+        return view('frontEnd.pages.about', compact('allteams','alltestomonials'));
     }
 
     public function ourcompany(){
-        return view('frontEnd.pages.ourcompany');
+        $allteams = $this->cms->getGlobalPostByID(9, 5);
+        $alltestomonials = $this->cms->getGlobalPostByID(6);
+        return view('frontEnd.pages.ourcompany',compact('allteams','alltestomonials'));
     }
 
     public function ourservices(){
-        return view('frontEnd.pages.ourservices');
+        $allteams = $this->cms->getGlobalPostByID(9, 5);
+        $alltestomonials = $this->cms->getGlobalPostByID(6);
+        return view('frontEnd.pages.ourservices',compact('allteams','alltestomonials'));
     }
 
     public function news(){
-        return view('frontEnd.pages.news');
+        $alltestomonials = $this->cms->getGlobalPostByID(6);
+        $allarticles = $this->cms->getGlobalPostByID(10,6);
+        return view('frontEnd.pages.news',compact('alltestomonials','allarticles'));
     }
 
     public function units($slug){
@@ -120,9 +114,11 @@ class IndexController extends Controller
     }
 
     public function blog(){
-        $posttype = PostType::where('slug','blogs')->first();
-        $allblogs = GobalPost::where('post_type',$posttype->id)->get();
-        return view('frontEnd.pages.blog', compact( 'allblogs'));
+
+        $allblogs = $this->cms->getGlobalPostByID(7,6);
+        $alltestomonials = $this->cms->getGlobalPostByID(6);
+
+        return view('frontEnd.pages.blog', compact( 'allblogs','alltestomonials'));
     }
 
     public function blogSingle($slug){
@@ -157,7 +153,8 @@ class IndexController extends Controller
     }
 
     public  function contact(){
-        return view('frontEnd.pages.contact');
+        $alltestomonials = $this->cms->getGlobalPostByID(6,5);
+        return view('frontEnd.pages.contact',compact('alltestomonials'));
     }
 
     public function submitContact(StoreContactRequest $request){

@@ -1,13 +1,20 @@
+
 <section class="main-banner">
     <div class="banner owl-carousel owl-theme">
-        <div class="banner-item">
+        @if(!empty($allsliders))
+        @foreach ($allsliders as $slider)
+        <div class="banner-item" style="background-image: url('{{ asset($slider->image) }}')">
             <div class="container">
                 <div class="banner-content">
-                    <h2>World -Class Equiptment</h2>
-                    <p>We invest heavily in technology, with us, you get the best service avaiable always</p>
-                    <a href="/" class="poutline-btn">Know more</a>
+                    <h2>{{ $slider->title }}</h2>
+                    <p>{!! $slider->post_content !!}</p>
+                    <a href="{{ $slider->links }}" class="poutline-btn">Know more</a>
                 </div>
             </div>
         </div>
+        @endforeach
+        @endif
     </div>
+
 </section>
+

@@ -11,15 +11,22 @@
         </div>
       </div>
       <div class="row">
+        @if(!empty($allteams))
+        @foreach($allteams as $team)
+
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="team-item">
-            <div class="team-avatar"></div>
+            <div class="team-avatar">
+                <img src="{{ asset($team->image) }}" height="211px" width="196px" alt="">
+            </div>
             <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
+              <h5>{{ $team->title }}</h5>
+              <p>{!! $team->post_content !!}</p>
             </div>
           </div>
         </div>
+        @endforeach
+        @endif
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="team-item">
             <div class="team-avatar"></div>

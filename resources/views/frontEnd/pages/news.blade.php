@@ -66,25 +66,34 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row">
+            @if(!empty($allarticles))
+            @foreach ($allarticles as $article)
+
+
           <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card-item">
               <div class="card-item-image">
+                  <img src="{{ $article->image }}" height="263px" width="100%" style="background-repeat: no-repeat;
+                  background-size: contain;
+                  background-position: center;" alt="">
               </div>
               <div class="card-item-body">
                 <h6>
                   <a href="#">
-                    Your health is our priority. That’s why our goal
+                    {{ $article->title }}
                   </a>
                 </h6>
                 <div class="card-date">
                   Published On
                   <span>
-                    9/10/2020
+                    {{ $article->created_at->format('Y/m/d') }}
                   </span>
                 </div>
               </div>
             </div>
           </div>
+          @endforeach
+        @endif
           <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="card-item">
               <div class="card-item-image">

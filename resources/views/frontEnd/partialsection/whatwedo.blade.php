@@ -25,34 +25,19 @@
         </div>
         <div class="col-lg-8 col-md-6">
           <div class="what-we-do-lists whychooseus owl-carousel owl-theme">
+            @if(!empty($allwhatwedo))
+            @foreach ($allwhatwedo as $whatwedo)
+
             <div class="what-we-do-item">
-              <div class="image-container" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 85.3%), url('./images/what-we-do1.png');">
+              <div class="image-container" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 85.3%), url('{{ asset($whatwedo->image) }}');">
                 <h1>
-                  <a href="">Rardiology</a>
+                  <a href="">{{ $whatwedo->title }}</a>
                 </h1>
               </div>
             </div>
-            <div class="what-we-do-item">
-              <div class="image-container" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 85.3%), url(/images/what-we-do2.png);">
-                <h1>
-                  <a href="">Rardiology</a>
-                </h1>
-              </div>
-            </div>
-            <div class="what-we-do-item">
-              <div class="image-container" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 85.3%), url('./images/what-we-do1.png');">
-                <h1>
-                  <a href="">Rardiology</a>
-                </h1>
-              </div>
-            </div>
-            <div class="what-we-do-item">
-              <div class="image-container" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 85.3%), url(/images/what-we-do2.png);">
-                <h1>
-                  <a href="">Rardiology</a>
-                </h1>
-              </div>
-            </div>
+            @endforeach
+            @endif
+
           </div>
         </div>
       </div>

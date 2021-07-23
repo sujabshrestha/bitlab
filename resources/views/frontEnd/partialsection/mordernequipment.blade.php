@@ -35,100 +35,21 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
               <div class="row">
+                @if(!empty($allequipments))
+                @foreach($allequipments as $equipment)
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/CTSACAN/scann.jpeg') }}')">
-                    <p>
-                      <a href="">BTC Scan</a>
-                    </p>
-                  </div>
+                    <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset($equipment->image) }} ')">
+                      <p>
+                        <a href="">{{ $equipment->title }}</a>
+                      </p>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/CTSACAN/scans.jpeg') }}')">
-                    <p>
-                      <a href="">Radiology</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/product1.png') }}')">
-                    <p>
-                      <a href="">MRI Scan</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/product2.png') }}')">
-                    <p>
-                      <a href="">CT Scan</a>
-                    </p>
-                  </div>
-                </div>
+                @endforeach
+                @endif
               </div>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-              <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">BTC Scan</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">Radiology</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">MRI Scan</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">CT Scan</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-              <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">BTC Scan</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">Radiology</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">MRI Scan</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                  <div class="tab-inner-item" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), url('{{ asset('images/c1logo.png') }}')">
-                    <p>
-                      <a href="">CT Scan</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+
           </div>
         </div>
       </div>
