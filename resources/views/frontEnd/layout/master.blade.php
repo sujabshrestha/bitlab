@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="{{ asset('js/dist/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/main.css') }}">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=398658468032457&autoLogAppEvents=1" nonce="SfqTRRou"></script>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60fc3bb37d36af0012eaa375&product=sop' async='async'></script>
 
     @stack('css')
 </head>

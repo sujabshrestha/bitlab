@@ -35,7 +35,7 @@
                             </div>
                             <div class="content-main">
                                 <h4>
-                                    <a href="">{{ $blog->title }}</a>
+                                    <a href="{{ route('front.blogSingle',$blog->slug) }}">{{ $blog->title }}</a>
                                 </h4>
                                 <p>{!! $blog->post_content !!}</p>
                                 <div class="read-more">

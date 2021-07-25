@@ -46,15 +46,28 @@ class IndexController extends Controller
     }
 
     public function ourcompany(){
-        $allteams = $this->cms->getGlobalPostByID(9, 5);
+        $companies = $this->cms->getGlobalPostByID(3);
+        foreach ($companies as $company){
+            $companyKeys= $this->cms->getGlobalPostMetaByKey($company,'key-points');
+            $company->background_image = $this->cms->getGlobalPostMetaByKey($company,'banner-image');
+            $company->subtitle= $this->cms->getGlobalPostMetaByKey($company,'subtitle');
+            if(unserialize($companyKeys)){
+                $company->companyKeys = unserialize($companyKeys);
+            }
+        }
         $alltestomonials = $this->cms->getGlobalPostByID(6);
-        return view('frontEnd.pages.ourcompany',compact('allteams','alltestomonials'));
+        return view('frontEnd.pages.ourcompany',compact('companies','alltestomonials'));
     }
 
     public function ourservices(){
         $allteams = $this->cms->getGlobalPostByID(9, 5);
         $alltestomonials = $this->cms->getGlobalPostByID(6);
         return view('frontEnd.pages.ourservices',compact('allteams','alltestomonials'));
+    }
+
+    public function blogSingle($slug){
+        $blog = $this->cms->getgobalPostBySlug($slug);
+        return view('frontEnd.pages.single',compact('blog'));
     }
 
     public function news(){

@@ -24,214 +24,91 @@
     <div class="product-list">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product1.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
+                @isset($companies)
+                    @foreach ($companies as $company)
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                {!! gobalPostImage($company->id, 'thumbnail') !!}
+                                <div class="product-content mt-3">
+                                    <h5>
+                                        <a href="" >{{ $company->title }}</a>
+                                    </h5>
+                                    <small>{{ $company->subtitle }}</small>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product1.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product2.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product3.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product3.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product2.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="product-item">
-                        <img src="{{ asset('images/product1.png') }}" alt="product title" />
-                        <div class="product-content">
-                            <h5>
-                                <a href="/" >Daily Health</a>
-                            </h5>
-                            <small>service available always</small>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endisset
             </div>
         </div>
     </div>
 </section>
 <section class="about-products">
-  <div class="product">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="product-indetail">
-            <h3>Daily Health</h3>
-            <p>Making an entry in the health sector in 2000, our range of service have become more benefit for favourites across the nation</p>
-            <div class="product-spec">
-              <ul>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-              </ul>
+    @isset($companies)
+        @foreach ($companies as $company)
+        @if ($loop->iteration % 2 == 0)
+        <div class="product-reverse">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-5 order-md-2">
+                  <div class="product-indetail">
+                    <h3>{{ $company->title }}</h3>
+                    <p>{!! Str::limit($company->content, 10) !!}</p>
+                    @if ($company->companyKeys)
+                        <div class="product-spec">
+                            <ul>
+                            @foreach ($company->companyKeys as $item)
+                              <li>
+                                {{ $item['points']??'' }}
+                              </li>
+                            @endforeach
+                            </ul>
+                          </div>
+                    @endif
+                  </div>
+                </div>
+                <div class="col-md-7 order-md-1">
+                  <div class="product-indetail-img">
+                    <img src="{{ asset($company->background_image) }}" alt="{{ $company->title }}" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-7">
-          <div class="product-indetail-img">
-            <img src="{{ asset('images/dailyhealth.png') }}" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="product-reverse product2-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5 order-md-2">
-          <div class="product-indetail">
-            <h3>Daily Health</h3>
-            <p>Making an entry in the health sector in 2000, our range of service have become more benefit for favourites across the nation</p>
-            <div class="product-spec">
-              <ul>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-              </ul>
+        @else
+        <div class="product">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                <div class="product-indetail">
+                    <h3>{{ $company->title }}</h3>
+                    {!! $company->post_content !!}
+                    @if ($company->companyKeys)
+                        <div class="product-spec">
+                            <ul>
+                            @foreach ($company->companyKeys as $item)
+                              <li>
+                                {{ $item['points']??'' }}
+                              </li>
+                            @endforeach
+                            </ul>
+                          </div>
+                    @endif
+                </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="product-indetail-img">
+                        <img src="{{ asset($company->background_image) }}" alt="{{ $company->title }}" />
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-7 order-md-1">
-          <div class="product-indetail-img">
-            <img src="{{ asset('images/companyproduct2.png') }}" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="product product-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="product-indetail">
-            <h3>Daily Health</h3>
-            <p>Making an entry in the health sector in 2000, our range of service have become more benefit for favourites across the nation</p>
-            <div class="product-spec">
-              <ul>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-                <li>
-                  Heathy
-                </li>
-              </ul>
             </div>
-          </div>
         </div>
-        <div class="col-md-7">
-          <div class="product-indetail-img">
-            <img src="{{ asset('images/company-bid.png') }}" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        @endif
+
+        @endforeach
+  @endisset
+
 </section>
 @include('frontEnd.partialsection.msgfromcm')
 
