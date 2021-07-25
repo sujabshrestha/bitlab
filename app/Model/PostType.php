@@ -5,21 +5,11 @@ namespace App\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Activitylog\Traits\LogsActivity;
+
 
 class PostType extends Model
 {
-    use Sluggable, SoftDeletes, LogsActivity;
-
-    protected static $logAttributes = ['title', 'icon'];
-
-    public function getDescriptionForEvent(string $eventName): string
-    {
-        return "This model has been {$eventName}";
-    }
-    protected static $logName = 'PostType';
-    protected static $logOnlyDirty = true;
-
+    use Sluggable, SoftDeletes;
 
     protected $fillable = [
         'title',

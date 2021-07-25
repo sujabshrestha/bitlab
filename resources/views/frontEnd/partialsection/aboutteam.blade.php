@@ -27,69 +27,7 @@
         </div>
         @endforeach
         @endif
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="team-item">
-            <div class="team-avatar"></div>
-            <div class="team-content">
-              <h5>Dipesh Shrestha</h5>
-              <p>Chairman and Executive Director</p>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>

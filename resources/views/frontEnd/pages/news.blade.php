@@ -37,10 +37,21 @@
           </div>
           <div class="col-md-7">
             <div class="featured-list featured-slider owl-carousel owl-theme">
-              <div class="list-item"></div>
-              <div class="list-item"></div>
-              <div class="list-item"></div>
-              <div class="list-item"></div>
+                @if(!empty($allarticles))
+
+                @php
+                    $firstarticle = $allarticles[0];
+                    $secondarticle = $allarticles[1];
+
+                @endphp
+
+                @endif
+                <div class="list-item">
+                    <img src="{{$firstarticle->image }}" height="410px" width="100%" alt=""></div>
+              <div class="list-item">
+                  <img src="{{ $secondarticle->image }}" height="410px" width="100%" alt="">
+              </div>
+
             </div>
           </div>
         </div>
@@ -67,7 +78,7 @@
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row">
             @if(!empty($allarticles))
-            @foreach ($allarticles as $article)
+            @foreach ($allarticles->skip(2) as $article)
 
 
           <div class="col-lg-3 col-md-4 col-sm-6">

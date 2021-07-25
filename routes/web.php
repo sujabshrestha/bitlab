@@ -46,10 +46,6 @@ Route::group(
     Route::get('/ourcompany','IndexController@ourcompany')->name('ourcompany');
     Route::get('/ourservices','IndexController@ourservices')->name('ourservices');
     Route::get('/news','IndexController@news')->name('news');
-    Route::get('/unit/{slug}','IndexController@units')->name('unit');
-    Route::get('/unit/{post_type}/{slug}','IndexController@unitSingle')->name('unitSingle');
-    Route::get('/product','IndexController@product')->name('product');
-    Route::get('/product/{slug}','IndexController@productSingle')->name('product.single');
     Route::get('/career','IndexController@career')->name('career');
     Route::get('/blog','IndexController@blog')->name('blog');
     Route::get('/blog/{slug}','IndexController@blogSingle')->name('blogSingle');

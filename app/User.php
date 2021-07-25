@@ -8,20 +8,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Activitylog\Traits\LogsActivity;
+
 
 class User  extends EloquentUser
 {
-    use  SoftDeletes, LogsActivity;
-
-    protected static $logAttributes = ['first_name', 'last_name', 'email', 'phone'];
-
-    public function getDescriptionForEvent(string $eventName): string
-    {
-        return "This model has been {$eventName}";
-    }
-    protected static $logName = 'User';
-    protected static $logOnlyDirty = true;
+    use  SoftDeletes;
 
     public function userInfo(){
         return $this->hasMany(UserInfo::class, 'user_id');
